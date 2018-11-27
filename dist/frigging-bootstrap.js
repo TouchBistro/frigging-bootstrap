@@ -7,7 +7,7 @@
 		exports["FriggingBootstrap"] = factory(require("react"), require("classnames"), require("frig"), require("react-addons-css-transition-group"), require("react-dom"), require("colr"), require("numeral"));
 	else
 		root["FriggingBootstrap"] = factory(root["react"], root["classnames"], root["frig"], root["react-addons-css-transition-group"], root["react-dom"], root["colr"], root["numeral"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_11__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_19__, __WEBPACK_EXTERNAL_MODULE_29__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_6__, __WEBPACK_EXTERNAL_MODULE_7__, __WEBPACK_EXTERNAL_MODULE_8__, __WEBPACK_EXTERNAL_MODULE_11__, __WEBPACK_EXTERNAL_MODULE_18__, __WEBPACK_EXTERNAL_MODULE_19__, __WEBPACK_EXTERNAL_MODULE_31__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -74,39 +74,39 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _form_error_list2 = _interopRequireDefault(_form_error_list);
 
-	var _file = __webpack_require__(25);
+	var _file = __webpack_require__(27);
 
 	var _file2 = _interopRequireDefault(_file);
 
-	var _form = __webpack_require__(26);
+	var _form = __webpack_require__(28);
 
 	var _form2 = _interopRequireDefault(_form);
 
-	var _input = __webpack_require__(27);
+	var _input = __webpack_require__(29);
 
 	var _input2 = _interopRequireDefault(_input);
 
-	var _number = __webpack_require__(28);
+	var _number = __webpack_require__(30);
 
 	var _number2 = _interopRequireDefault(_number);
 
-	var _select = __webpack_require__(30);
+	var _select = __webpack_require__(32);
 
 	var _select2 = _interopRequireDefault(_select);
 
-	var _submit = __webpack_require__(31);
+	var _submit = __webpack_require__(33);
 
 	var _submit2 = _interopRequireDefault(_submit);
 
-	var _switch = __webpack_require__(32);
+	var _switch = __webpack_require__(34);
 
 	var _switch2 = _interopRequireDefault(_switch);
 
-	var _text = __webpack_require__(33);
+	var _text = __webpack_require__(35);
 
 	var _text2 = _interopRequireDefault(_text);
 
-	var _timepicker = __webpack_require__(34);
+	var _timepicker = __webpack_require__(36);
 
 	var _timepicker2 = _interopRequireDefault(_timepicker);
 
@@ -1713,6 +1713,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _humanizeString = __webpack_require__(25);
+
+	var _humanizeString2 = _interopRequireDefault(_humanizeString);
+
 	var _default_props = __webpack_require__(15);
 
 	var _default_props2 = _interopRequireDefault(_default_props);
@@ -1741,7 +1745,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // `errorObj` e.g. { name: ['is invalid'], phone: ['must be a number']}
 	      // convert to: [`name is invalid`, 'must be a number']
 	      var errors = Object.keys(errorObj).map(function (k) {
-	        return k + ' ' + errorObj[k];
+	        return (0, _humanizeString2.default)(k) + ' ' + errorObj[k];
 	      });
 	      return _react2.default.createElement(
 	        'div',
@@ -1780,6 +1784,42 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var decamelize = __webpack_require__(26);
+
+	module.exports = function (str) {
+		if (typeof str !== 'string') {
+			throw new TypeError('Expected a string');
+		}
+
+		str = decamelize(str);
+		str = str.toLowerCase().replace(/[_-]+/g, ' ').replace(/\s{2,}/g, ' ').trim();
+		str = str.charAt(0).toUpperCase() + str.slice(1);
+
+		return str;
+	};
+
+/***/ },
+/* 26 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	module.exports = function (str, sep) {
+		if (typeof str !== 'string') {
+			throw new TypeError('Expected a string');
+		}
+
+		sep = typeof sep === 'undefined' ? '_' : sep;
+
+		return str.replace(/([a-z\d])([A-Z])/g, '$1' + sep + '$2').replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + sep + '$2').toLowerCase();
+	};
+
+/***/ },
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -1951,7 +1991,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = FileInput;
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2020,7 +2060,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Form;
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2183,7 +2223,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Input;
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2205,7 +2245,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classnames2 = _interopRequireDefault(_classnames);
 
-	var _numeral = __webpack_require__(29);
+	var _numeral = __webpack_require__(31);
 
 	var _numeral2 = _interopRequireDefault(_numeral);
 
@@ -2345,13 +2385,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Number;
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_29__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_31__;
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2559,7 +2599,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Select;
 
 /***/ },
-/* 31 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2680,7 +2720,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Submit;
 
 /***/ },
-/* 32 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2867,7 +2907,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Switch;
 
 /***/ },
-/* 33 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2967,7 +3007,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Text;
 
 /***/ },
-/* 34 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -2993,11 +3033,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _frig = __webpack_require__(8);
 
-	var _time_formatter = __webpack_require__(35);
+	var _time_formatter = __webpack_require__(37);
 
 	var _time_formatter2 = _interopRequireDefault(_time_formatter);
 
-	var _timepicker_popup = __webpack_require__(36);
+	var _timepicker_popup = __webpack_require__(38);
 
 	var _timepicker_popup2 = _interopRequireDefault(_timepicker_popup);
 
@@ -3130,7 +3170,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = TimePicker;
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -3223,7 +3263,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = TimeFormatter;
 
 /***/ },
-/* 36 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3243,11 +3283,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _input = __webpack_require__(27);
+	var _input = __webpack_require__(29);
 
 	var _input2 = _interopRequireDefault(_input);
 
-	var _switch = __webpack_require__(32);
+	var _switch = __webpack_require__(34);
 
 	var _switch2 = _interopRequireDefault(_switch);
 

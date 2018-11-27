@@ -1,4 +1,5 @@
 import React from 'react'
+import humanize from 'humanize-string'
 import defaultProps from '../default_props.js'
 
 export default class FormErrorList extends React.Component {
@@ -14,7 +15,7 @@ export default class FormErrorList extends React.Component {
     const errorObj = this.props.errors
     // `errorObj` e.g. { name: ['is invalid'], phone: ['must be a number']}
     // convert to: [`name is invalid`, 'must be a number']
-    const errors = Object.keys(errorObj).map(k => `${k} ${errorObj[k]}`)
+    const errors = Object.keys(errorObj).map(k => `${humanize(k)} ${errorObj[k]}`)
     return (
       <div>
         {
