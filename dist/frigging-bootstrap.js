@@ -153,8 +153,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	if(false) {
 		// When the styles change, update the <style> tags
 		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./index.styl", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js!./../../node_modules/stylus-loader/index.js!./index.styl");
+			module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/stylus-loader/index.js!./index.styl", function() {
+				var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/stylus-loader/index.js!./index.styl");
 				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 				update(newContent);
 			});
@@ -541,7 +541,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Checkbox() {
 	    _classCallCheck(this, Checkbox);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Checkbox).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Checkbox.__proto__ || Object.getPrototypeOf(Checkbox)).apply(this, arguments));
 	  }
 
 	  _createClass(Checkbox, [{
@@ -638,7 +638,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function InputErrorList() {
 	    _classCallCheck(this, InputErrorList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputErrorList).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (InputErrorList.__proto__ || Object.getPrototypeOf(InputErrorList)).apply(this, arguments));
 	  }
 
 	  _createClass(InputErrorList, [{
@@ -704,7 +704,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function InputError() {
 	    _classCallCheck(this, InputError);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputError).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (InputError.__proto__ || Object.getPrototypeOf(InputError)).apply(this, arguments));
 	  }
 
 	  _createClass(InputError, [{
@@ -774,7 +774,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function InputErrorBody() {
 	    _classCallCheck(this, InputErrorBody);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(InputErrorBody).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (InputErrorBody.__proto__ || Object.getPrototypeOf(InputErrorBody)).apply(this, arguments));
 	  }
 
 	  _createClass(InputErrorBody, [{
@@ -835,15 +835,15 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Saved() {
 	    _classCallCheck(this, Saved);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Saved).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Saved.__proto__ || Object.getPrototypeOf(Saved)).apply(this, arguments));
 	  }
 
 	  _createClass(Saved, [{
 	    key: 'render',
 	    value: function render() {
-	      var _props = this.props;
-	      var saved = _props.saved;
-	      var className = _props.className;
+	      var _props = this.props,
+	          saved = _props.saved,
+	          className = _props.className;
 
 	      if (!saved) return null;
 	      return _react2.default.createElement(
@@ -883,8 +883,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 	var sizeClassNames = function sizeClassNames() {
-	  var props = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	  var opts = arguments.length <= 1 || arguments[1] === undefined ? { offsets: true } : arguments[1];
+	  var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+	  var opts = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { offsets: true };
 
 	  var classes = {};
 	  var sizes = ['xs', 'sm', 'md', 'lg'];
@@ -1109,7 +1109,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Color() {
 	    _classCallCheck(this, Color);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Color).call(this));
+	    var _this = _possibleConstructorReturn(this, (Color.__proto__ || Object.getPrototypeOf(Color)).call(this));
 
 	    _this.state = { colr: _colr2.default.fromHex('#fff') };
 
@@ -1293,15 +1293,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Label() {
 	    _classCallCheck(this, Label);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Label).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Label.__proto__ || Object.getPrototypeOf(Label)).apply(this, arguments));
 	  }
 
 	  _createClass(Label, [{
 	    key: 'isEmpty',
 	    value: function isEmpty() {
 	      return !this.props.label;
-	    } // can set label={false} to not show a label
-
+	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -1332,7 +1331,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  labelWidth: _react2.default.PropTypes.object.isRequired,
 	  layout: _react2.default.PropTypes.string,
 	  block: _react2.default.PropTypes.bool,
-	  label: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element, _react2.default.PropTypes.bool])
+	  label: _react2.default.PropTypes.oneOfType([_react2.default.PropTypes.string, _react2.default.PropTypes.element, _react2.default.PropTypes.bool] // can set label={false} to not show a label
+	  )
 	}, _class.defaultProps = {
 	  block: false,
 	  label: '',
@@ -1389,10 +1389,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var ColorMap = (_dec = (0, _draggable2.default)({
 	  // See this for the below issue with eslint and higher order components - https://github.com/yannickcr/eslint-plugin-react/issues/322
-
 	  updateClientCoords: function updateClientCoords(_ref) {
-	    var clientX = _ref.clientX;
-	    var clientY = _ref.clientY;
+	    var clientX = _ref.clientX,
+	        clientY = _ref.clientY;
 	    // eslint-disable-line react/prop-types
 	    var rect = _reactDom2.default.findDOMNode(this).getBoundingClientRect();
 	    var x = (clientX - rect.left) / rect.width;
@@ -1409,7 +1408,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function ColorMap() {
 	    _classCallCheck(this, ColorMap);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(ColorMap).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (ColorMap.__proto__ || Object.getPrototypeOf(ColorMap)).apply(this, arguments));
 	  }
 
 	  _createClass(ColorMap, [{
@@ -1489,7 +1488,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _inherits(Draggable, _React$Component);
 
 	      function Draggable() {
-	        var _Object$getPrototypeO;
+	        var _ref2;
 
 	        var _temp, _this, _ret;
 
@@ -1499,7 +1498,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          args[_key] = arguments[_key];
 	        }
 
-	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Draggable)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Draggable.__proto__ || Object.getPrototypeOf(Draggable)).call.apply(_ref2, [this].concat(args))), _this), _this.state = {
 	          dragging: false
 	        }, _this.getPercentageValue = function (value) {
 	          var percentage = value / _this.props.max * 100;
@@ -1549,20 +1548,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	        value: function _updateClientCoords(e) {
 	          e.preventDefault();
 
-	          var _ref2 = e.touches == null ? e : e.touches[0];
-
-	          var clientX = _ref2.clientX;
-	          var clientY = _ref2.clientY;
+	          var _ref3 = e.touches == null ? e : e.touches[0],
+	              clientX = _ref3.clientX,
+	              clientY = _ref3.clientY;
 
 	          updateClientCoords.bind(this)({ clientX: clientX, clientY: clientY });
 	        }
 	      }, {
 	        key: '_childProps',
 	        value: function _childProps() {
-	          var startDragging = this.startDragging;
-	          var getPercentageValue = this.getPercentageValue;
-	          var getScaledValue = this.getScaledValue;
-	          var active = this.active;
+	          var startDragging = this.startDragging,
+	              getPercentageValue = this.getPercentageValue,
+	              getScaledValue = this.getScaledValue,
+	              active = this.active;
 
 	          return Object.assign({}, this.props, {
 	            active: active,
@@ -1646,7 +1644,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var HueSlider = (_dec = (0, _draggable2.default)({
 	  // See this for the below issue with eslint and higher order components - https://github.com/yannickcr/eslint-plugin-react/issues/322
-
 	  updateClientCoords: function updateClientCoords(_ref) {
 	    var clientY = _ref.clientY;
 	    // eslint-disable-line react/prop-types
@@ -1662,7 +1659,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function HueSlider() {
 	    _classCallCheck(this, HueSlider);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(HueSlider).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (HueSlider.__proto__ || Object.getPrototypeOf(HueSlider)).apply(this, arguments));
 	  }
 
 	  _createClass(HueSlider, [{
@@ -1734,14 +1731,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function FormErrorList() {
 	    _classCallCheck(this, FormErrorList);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FormErrorList).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (FormErrorList.__proto__ || Object.getPrototypeOf(FormErrorList)).apply(this, arguments));
 	  }
 
 	  _createClass(FormErrorList, [{
 	    key: 'render',
 	    value: function render() {
-	      var errors = this.props.errors;
-
+	      var errorObj = this.props.errors;
+	      // `errorObj` e.g. { name: ['is invalid'], phone: ['must be a number']}
+	      // convert to: [`name is invalid`, 'must be a number']
+	      var errors = Object.keys(errorObj).map(function (k) {
+	        return k + ' ' + errorObj[k];
+	      });
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -1840,7 +1841,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function FileInput() {
 	    _classCallCheck(this, FileInput);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(FileInput).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (FileInput.__proto__ || Object.getPrototypeOf(FileInput)).apply(this, arguments));
 	  }
 
 	  _createClass(FileInput, [{
@@ -1982,7 +1983,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Form() {
 	    _classCallCheck(this, Form);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Form).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
 	  }
 
 	  _createClass(Form, [{
@@ -2077,7 +2078,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Input() {
 	    _classCallCheck(this, Input);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Input).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Input.__proto__ || Object.getPrototypeOf(Input)).apply(this, arguments));
 	  }
 
 	  _createClass(Input, [{
@@ -2242,7 +2243,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  _inherits(Number, _React$Component);
 
 	  function Number() {
-	    var _Object$getPrototypeO;
+	    var _ref;
 
 	    var _temp, _this, _ret;
 
@@ -2252,7 +2253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      args[_key] = arguments[_key];
 	    }
 
-	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_Object$getPrototypeO = Object.getPrototypeOf(Number)).call.apply(_Object$getPrototypeO, [this].concat(args))), _this), _this.state = {
+	    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Number.__proto__ || Object.getPrototypeOf(Number)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
 	      formattedValue: ''
 	    }, _temp), _possibleConstructorReturn(_this, _ret);
 	  }
@@ -2412,7 +2413,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Select() {
 	    _classCallCheck(this, Select);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Select).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Select.__proto__ || Object.getPrototypeOf(Select)).apply(this, arguments));
 	  }
 
 	  _createClass(Select, [{
@@ -2602,7 +2603,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Submit() {
 	    _classCallCheck(this, Submit);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Submit).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Submit.__proto__ || Object.getPrototypeOf(Submit)).apply(this, arguments));
 	  }
 
 	  _createClass(Submit, [{
@@ -2741,7 +2742,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Switch() {
 	    _classCallCheck(this, Switch);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Switch).call(this));
+	    var _this = _possibleConstructorReturn(this, (Switch.__proto__ || Object.getPrototypeOf(Switch)).call(this));
 
 	    _this._onClick = _this._onClick.bind(_this);
 	    return _this;
@@ -2924,7 +2925,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function Text() {
 	    _classCallCheck(this, Text);
 
-	    return _possibleConstructorReturn(this, Object.getPrototypeOf(Text).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Text.__proto__ || Object.getPrototypeOf(Text)).apply(this, arguments));
 	  }
 
 	  _createClass(Text, [{
@@ -3036,7 +3037,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function TimePicker() {
 	    _classCallCheck(this, TimePicker);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TimePicker).call(this));
+	    var _this = _possibleConstructorReturn(this, (TimePicker.__proto__ || Object.getPrototypeOf(TimePicker)).call(this));
 
 	    _this._onTimeChange = _this._onTimeChange.bind(_this);
 	    return _this;
@@ -3268,7 +3269,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  function TimePickerPopup() {
 	    _classCallCheck(this, TimePickerPopup);
 
-	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(TimePickerPopup).call(this));
+	    var _this = _possibleConstructorReturn(this, (TimePickerPopup.__proto__ || Object.getPrototypeOf(TimePickerPopup)).call(this));
 
 	    _this.onMinuteChange = _this.onMinuteChange.bind(_this);
 	    _this.onHourChange = _this.onHourChange.bind(_this);

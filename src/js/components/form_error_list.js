@@ -11,7 +11,10 @@ export default class FormErrorList extends React.Component {
   }
 
   render() {
-    const { errors } = this.props
+    const errorObj = this.props.errors
+    // `errorObj` e.g. { name: ['is invalid'], phone: ['must be a number']}
+    // convert to: [`name is invalid`, 'must be a number']
+    const errors = Object.keys(errorObj).map(k => `${k} ${errorObj[k]}`)
     return (
       <div>
         {
