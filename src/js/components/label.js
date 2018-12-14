@@ -34,7 +34,7 @@ export default class Label extends React.Component {
       return <div className={horizontalClasses} />
     }
 
-    const labelHtml = Object.assign({}, this.props)
+    const labelHtml = {}
     labelHtml.className = cx(labelHtml.className, {
       [horizontalClasses]: this.props.layout === 'horizontal',
     })
