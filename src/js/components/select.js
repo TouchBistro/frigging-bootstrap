@@ -80,7 +80,6 @@ export default class Select extends React.Component {
       className: 'form-control',
       value: this.props.value,
       onChange: this.props.onChange,
-      options: this.props.options,
     })
   }
 
