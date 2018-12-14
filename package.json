@@ -28,7 +28,7 @@
     "version": "./scripts/version.sh",
     "postversion": "git push && git push --tags",
     "coveralls": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "build": "FRIG_ENV=production FRIG_MIN=minify webpack --config ./webpack.config.babel.js --progress --profile --colors --mode production"
+    "build": "FRIG_ENV=production webpack --config ./webpack.config.babel.js --progress --profile --colors --mode production"
   },
   "devDependencies": {
     "babel-core": "6.14.0",
