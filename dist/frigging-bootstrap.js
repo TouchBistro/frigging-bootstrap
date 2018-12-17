@@ -2550,7 +2550,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    key: '_selectOption',
 	    value: function _selectOption(o) {
 	      var attrs = {
-	        key: 'option-' + o.label,
+	        key: 'option-' + (o.value || ''),
 	        value: o.value || ''
 	      };
 	      return _react2.default.createElement(

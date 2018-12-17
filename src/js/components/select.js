@@ -85,7 +85,7 @@ export default class Select extends React.Component {
 
   _selectOption(o) {
     const attrs = {
-      key: `option-${o.label}`,
+      key: `option-${o.value || ''}`,
       value: o.value || '',
     }
     return <option {...attrs}>{o.label}</option>
